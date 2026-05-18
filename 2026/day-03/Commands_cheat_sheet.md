@@ -71,3 +71,40 @@
 2. 'du -sh <dir>' -> to display the size of specific dir
 3. 'mount' -> ists all currently mounted file systems.
 
+## Networking troubleshooting
+
+### Basic Connectivity & IP Configuration
+
+1. 'ip a' or 'ip addr show' -> to see network details and ip assigned.
+2. 'ping <IP>' -> to send ICMP packets to test reachability.
+3. 'ip route' -> View or modify the routing table to see how traffic leaves the system
+4. ethtool <interface> -> Query or modify network interface hardware and driver settings(ex- ethtool eth0)
+
+### DNS & Name Resolution
+
+1. 'dig <domain_name>' -> query DNS servre and get detailed records.
+2. nslookup <domain_name> -> query DNS server to find Ip add.
+3. cat /etc/resolv.conf -> Verify which DNS name servers the system is actively using.
+
+### Port Connectivity & Services
+
+1. 'nc -zv [host] <port>' -> netcat test to check if port is open on remote host.
+2. 'ss -tulpn' -> View all listening network ports and the processes associated with them.
+3. 'curl -I [URL}' -> Fetch HTTP headers to check web server responses
+
+### Route Tracking & Packet Path
+
+1. 'traceroute <host/ip>' -> Trace the path packets take to reach a target server.
+2. 'mtr <host/ip> -> a diagnostic tool that combines traceroute and ping to continously show packets loss and latency.
+
+### 5. Network Traffic & Packet Capture
+
+1. 'sudo tcpdump -i [interface] -n -v' -> Capture and inspect live network packets on a specific interface.
+2. 'ip -s link' -> display network interface statistics
+3. 'sudo iftop' -> onitor real-time bandwidth usage by individual connections.
+
+### 6. Active Connections & Sockets
+
+1. 'ss -tunp' -> list all active TCP and UDP connection in real time.
+2. 'lsof -i -P -n | grep LISTEN' -> List all programs with network files currently open in listening mode. 
+
