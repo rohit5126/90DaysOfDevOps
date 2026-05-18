@@ -34,6 +34,40 @@
 1. 'systemctl' -> used to manage systemd services.
 2. 'free -h' -> to see details about the RAM
 3. 'uptime' -> hows how long systemm has been running.
-4. 'df -h' -> it shows details about the storage or space left.
 
+## File systems
+
+### 1. Navigation and Directory Info
+
+1. 'ls' -> listing files and directory.
+2. 'ls -l' -> show detailed info.
+3. 'ls -a' -> show alll files, including hidden files.
+4. 'ls -lh' -> display fie size iin human readable format.
+   
+### 2. File and Directory Operations
+
+1. 'touch' -> create a new file.
+2. 'mkdir -p <dir>' -> to ignore already exist error.
+3. 'mkdir -p <path>' -> to create a parent dir.
+4. 'cp <source_file> <dest_path>' -> to copy a file.
+5. 'cp -r <source_dir> <dest_path>' -> to copy dir with its content.
+6. 'mv <source_fileordir> <dest_path>' -> to move file or dir or renaming a file.
+7. 'rm <file>' -> remove a file.
+8. 'rm -r <dir>' -> to remove a dir.
+9. 'rm -rvf <dir>' -> forcefullu remove a dir.
+
+### 3. Viewing and Searching Files
+
+1. 'cat <file>' -> to view content of a file
+2. 'less <file>' ->  Opens a file in a scrollable view (press q to exit).
+3. 'head -n 5 <file>' -> to see first 5 lines of the file
+4. 'tail -n 5 <file>' -> to see last 5 lines of the file
+5. 'find <path> -name "<file>"' -> to find a file in that particular path
+6. 'grep <patternortext> <file>' -> to find a text in a file. it is case sensitive.
+
+### 4. Disk and system info
+
+1. 'df -h' -> it shows details about the storage or space left.
+2. 'du -sh <dir>' -> to display the size of specific dir
+3. 'mount' -> ists all currently mounted file systems.
 
