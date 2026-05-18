@@ -3,7 +3,7 @@
 
 ### 1. Monitoring & Viewing Processes
 
-1. 'ps' -> it displays snapshot of current processes.
+1. '## ps' -> it displays snapshot of current processes.
 2. 'ps -aux' -> it displays all process with detailed info
 3. 'ps -ef --forest' -> it displays and ASCII process tree to show parent child relationship.
 4. 'top' -> it displays real time view of process running and system resource usage.
