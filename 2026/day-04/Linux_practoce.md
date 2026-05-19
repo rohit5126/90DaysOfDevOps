@@ -18,13 +18,11 @@ ps -ef
 
 ```bash
 ps -ef | grep nginx && ps -ef | grep ssh
-'''
 
 ## check the status of the services.
 
-```bash
 systemctl status nginx
-'''
+```
 
 ## to check real time running process.
 
