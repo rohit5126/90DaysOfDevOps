@@ -1,11 +1,11 @@
 Capture quick health snapshot.
-## environment basics
 
+## environment basics
 **uname -a  or lsb_release -a**
 
 <img width="1211" height="48" alt="image" src="https://github.com/user-attachments/assets/8142e3b2-e8b5-4491-b872-8016e52b892a" />
 
-##cpu memory
+## cpu memory
 
 **top**
 <img width="1263" height="568" alt="image" src="https://github.com/user-attachments/assets/6324bdaa-8c35-4c4a-80f2-aec3af4c2599" />
@@ -14,7 +14,7 @@ Capture quick health snapshot.
 
 <img width="937" height="87" alt="image" src="https://github.com/user-attachments/assets/ae18710c-4e16-4d57-8abe-034ca991b8c8" />
 
-##Disk/IO
+## Disk/IO
 
 **df -h**
 
@@ -24,13 +24,13 @@ Capture quick health snapshot.
 
 <img width="752" height="197" alt="image" src="https://github.com/user-attachments/assets/418a1198-07a9-4376-9d87-18f659725cb1" />
 
-##Network
+## Network
 
 **ss -tulnp or netstat -tulnp**
 
 <img width="1642" height="295" alt="image" src="https://github.com/user-attachments/assets/11167750-c225-4adb-956d-9b5545eb5394" />
 
-##logs
+## logs
 
 **journalctl -n 50**
 
@@ -42,7 +42,7 @@ ________________________________________________________________________________
 # runtool on specific target service.(nginx)
 
 **systemctl status nginx**
-## in output I observed that the service is inactive for the last 10 mins.
+in output I observed that the service is inactive for the last 10 mins.
 
 **ps -aux | grep nginx**
 ## the CPU and Memory usage look normal.
