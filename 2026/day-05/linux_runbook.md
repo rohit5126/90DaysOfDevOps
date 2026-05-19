@@ -47,8 +47,8 @@ ________________________________________________________________________________
 ## ps -aux | grep nginx
 **the CPU and Memory usage look normal.**
 
-**netstat -tulnp | grep nginx**
-## the service seems to be listening at port 80
+## netstat -tulnp | grep nginx
+**the service seems to be listening at port 80**
 
 ## journalctl -u nginx -n 20
 **in logs we can see someone stopped the service and not started it**
@@ -56,34 +56,34 @@ ________________________________________________________________________________
 ## systemctl list-units --type=service --state=running
 **checked active service, could not found nginx.**
 
-**systemctl start nginx**
-## unable to start the service. getting error job for service failed. service not started successfully.
+## systemctl start nginx
+**unable to start the service. getting error job for service failed. service not started successfully.**
 
-**systemctl -n 50**
-## checked system logs and found UID=1000 stopped nginx and started the nginx service with hig priority using command - "nice -n -18 nginx"
+## systemctl -n 50
+**checked system logs and found UID=1000 stopped nginx and started the nginx service with hig priority using command - "nice -n -18 nginx"**
 
-**pgrep -a nginx**
-## checked process details seems ok
+## pgrep -a nginx
+**checked process details seems ok**
 
-**top -p [pid]**
-## CPU and memory looks normal
+## top -p [pid]
+**CPU and memory looks normal**
 
-**sudo systemctl restart nginx**
+## sudo systemctl restart nginx
 
-## if the above restart command does not work follow the below steps.
+**if the above restart command does not work follow the below steps.**
 
-## next step would be to kill the service and restart the service again using systemctl.
+**next step would be to kill the service and restart the service again using systemctl.**
 
-**pgrep nginx**
-## get all the PID for nginx. kill each PID forcefullu if required.
+## pgrep nginx
+**get all the PID for nginx. kill each PID forcefullu if required.**
 
-**sudo kill -9 [pid]**
-**systemctl restart nginx**
-## restart service using systemctl
+## sudo kill -9 [pid]
+## systemctl restart nginx
+**restart service using systemctl**
 
-## validate the service again, check the status.
+**validate the service again, check the status.**
 
-## check the CPU and memory usgae after restart.
-**ps -aux | grep nginx**
+**check the CPU and memory usgae after restart.**
+## ps -aux | grep nginx
 
 ## after restart CPU and memory looks normal. no spike after restart. Logs for the service shows service restarted successfully.
