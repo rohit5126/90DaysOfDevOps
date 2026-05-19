@@ -89,7 +89,7 @@
 ### Port Connectivity & Services
 
 1. 'nc -zv [host] [port]' -> netcat test to check if port is open on remote host.
-2. 'ss -tulpn' -> View all listening network ports and the processes associated with them.
+2. 'ss -tulnp' -> View all listening network ports and the processes associated with them.
 3. 'curl -I [URL]' -> Fetch HTTP headers to check web server responses
 
 ### Route Tracking & Packet Path
