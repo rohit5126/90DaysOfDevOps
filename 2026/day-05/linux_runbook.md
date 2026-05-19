@@ -39,7 +39,7 @@ Capture quick health snapshot.
 _________________________________________________________________________________________________________________________________________
 
 
-# runtool on specific target service.(nginx)
+# runbook on specific target service.(nginx)
 
 ## systemctl status nginx
 **in output I observed that the service is inactive for the last 10 mins.**
