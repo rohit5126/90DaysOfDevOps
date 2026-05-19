@@ -10,6 +10,6 @@ This is hands-on. Keep it simple and focused on fundamentals.
 ## Check running process.
 
 # to check running process.
-'''bash
+```bash
 ps -ef
-bash'''
+```
