@@ -1,11 +1,5 @@
 Today’s goal is to practice Linux fundamentals with real commands.
 
-You will create a short practice note by actually running basic commands and capturing what you see:
-
-Check running processes
-Inspect one systemd service
-Capture a small troubleshooting flow
-This is hands-on. Keep it simple and focused on fundamentals.
 
 # Difference between service and process in linux.
 
@@ -57,6 +51,7 @@ sudo systemctl restart nginx
 ```bash
 
 journalctl  #to view service logs
+journalctl -u ssh #view specific service
 
 journalctl -f #to follow live logs
 
@@ -74,3 +69,57 @@ journalctl -p err #to see error logs only.
 journalctl -g [keyword] # use specific keyword to search for logs, like kill or uid
 
 ```
+
+## inspect service file.
+
+```bash
+
+systemctl cat [servicename]
+systemctl cat ssh
+```
+
+# Mini Troublehsooting flow.
+# issue nginx not working and unable to restart the service.
+
+**step 1 - check the running process and find nginx is there or not.**
+```bash
+ps -aux | grep nginx
+```
+**step 2 - Inspect nginx service and ports**
+```bash
+
+systemctl status nginx
+systemctl restart nginx # to see if restart is working or not.
+
+nc -zv localhost 80 #to check if port is working.
+
+journalctl -u nginx | tail -n 50  #check te latest logs.
+jorunalctl -u nginx -g kill #to check if service was killed and not started correctly.
+```
+
+**step 3 - if you found restart was not successfull or unable to restart services**
+```bash
+
+pgrep nginx #to get PID
+
+#kill all the nginx PID forcefully.
+sudo kill -9 3992
+sudo kill -9 3993
+sudo kill -9 3992    
+
+# restart nginx using systemctl
+sudo systemctl restart nginx
+```
+
+**step4 - validate again**
+```bash
+systemctl status nginx
+```
+
+**the service started successfully**
+
+
+
+
+
+
