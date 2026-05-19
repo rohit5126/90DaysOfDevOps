@@ -56,4 +56,21 @@ sudo systemctl restart nginx
 
 ```bash
 
-journalctl -> to view service logs
+journalctl  #to view service logs
+
+journalctl -f #to follow live logs
+
+journalctl | tail -n 50 #to see last 50 logs
+journalctl | head -n 50 #to see top 50 logs
+
+journalctl -b #to see logs filter by boot
+
+journalctl --list-boots #to see reboot details.
+
+journalctl --since "yesterday" #to see specific time logs, use words like 1 hour ago, or specific dates
+
+journalctl -p err #to see error logs only.
+
+journalctl -g [keyword] # use specific keyword to search for logs, like kill or uid
+
+```
