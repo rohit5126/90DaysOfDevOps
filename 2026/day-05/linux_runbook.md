@@ -41,20 +41,20 @@ ________________________________________________________________________________
 
 # runtool on specific target service.(nginx)
 
-**systemctl status nginx**
-in output I observed that the service is inactive for the last 10 mins.
+## systemctl status nginx
+**in output I observed that the service is inactive for the last 10 mins.**
 
-**ps -aux | grep nginx**
-## the CPU and Memory usage look normal.
+## ps -aux | grep nginx
+**the CPU and Memory usage look normal.**
 
 **netstat -tulnp | grep nginx**
 ## the service seems to be listening at port 80
 
-**journalctl -u nginx -n 20**
-## in logs we can see someone stopped the service and not started it. 
+## journalctl -u nginx -n 20
+**in logs we can see someone stopped the service and not started it**
 
-**systemctl list-units --type=service --state=running**
-## checked active service, could not found nginx.
+## systemctl list-units --type=service --state=running
+**checked active service, could not found nginx.**
 
 **systemctl start nginx**
 ## unable to start the service. getting error job for service failed. service not started successfully.
