@@ -6,6 +6,10 @@ Check running processes
 Inspect one systemd service
 Capture a small troubleshooting flow
 This is hands-on. Keep it simple and focused on fundamentals.
+# Difference between service and process in linux.
+
+** every service is a process but every process is not a service.**
+Any instance of running program is a process and specilized process running the backgroup is service. the main difference is how both are managed. process is managed manually using commands where as services are managed by service manager like systemd or systemctl.
 
 # Check running process.
 
