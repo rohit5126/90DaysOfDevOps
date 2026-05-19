@@ -51,3 +51,9 @@ sudo kill -9 PID
 ```bash
 sudo systemctl restart nginx
 ```
+
+## inspect service logs.
+
+```bash
+
+journalctl -> to view service logs
