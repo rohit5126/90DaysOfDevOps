@@ -105,7 +105,7 @@ What commands would you use?**
 ```bash
 
 journalctl -u docker >> dockerlogs.txt
-#this to store all the logs for docker into a text file and sen it to developer.
+#this to store all the logs for docker into a text file and send it to developer.
 
 ```
 
