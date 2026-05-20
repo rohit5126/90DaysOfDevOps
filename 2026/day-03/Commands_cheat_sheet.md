@@ -32,8 +32,9 @@
 ### 5. System Services & Uptime
 
 1. 'systemctl' -> used to manage systemd services.
-2. 'free -h' -> to see details about the RAM
-3. 'uptime' -> hows how long systemm has been running.
+2. 'systemctl is-enabled nginx' -> to check if service is enabled to start automatically at boot.
+3. 'free -h' -> to see details about the RAM
+4. 'uptime' -> hows how long systemm has been running.
 
 ## File systems
 
