@@ -70,7 +70,7 @@
 
 <img width="914" height="121" alt="image" src="https://github.com/user-attachments/assets/8d3374a0-f119-4f45-97aa-1843f11a227f" />
 
-## nay issue faced.
+## wwhat is the issue I faced.
 
 **I faced an issue while downloading the file to local machine. I was using .pkk file to access ec2 through putty. SCP only works with .pem file. I searched about it and found that we can use puttygen application to convert .ppk file into .pem file.
 Open puttygen, click on load and search for .pkk file. select conversion from the top and click Export openSSH key save the file in .pem filr type. Then i used the .pem file to download from ec2 to my local machine.**
