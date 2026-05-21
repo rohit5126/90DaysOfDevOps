@@ -28,7 +28,7 @@
 
 **sudo apt install docker.io -y** 
 
-**after installing update user group to have docker to avaoid any error while running docker commands**
+**after installing update user group to have docker to avoid any error while running docker commands**
 
 **sudo usermod -aG docker $USER**
 
@@ -50,7 +50,7 @@
 
 ## nginx webpage is accessible
 
-**try to access nginx webpage using ip add of the server with port 80.  <ip address>:80**
+**try to access nginx webpage using ip add of the server with port 80.  [ip address]:80**
 
 <img width="650" height="470" alt="image" src="https://github.com/user-attachments/assets/2da3cdf9-53f0-48bc-8fc2-96e34e09bca3" />
 
@@ -63,7 +63,10 @@
 <img width="677" height="52" alt="image" src="https://github.com/user-attachments/assets/7aa12edb-ca5e-4af7-a9fd-c66ec2cc9c8c" />
 
 ## download the file to local machine.
+
 **we can use Secure copy protocol(SCP)**
+
 **scp -i /path/to/your-key.pem ubuntu@ec2-ip-address:/remote/path/to/file /local/path/to/destination**
+
 <img width="914" height="121" alt="image" src="https://github.com/user-attachments/assets/8d3374a0-f119-4f45-97aa-1843f11a227f" />
 
