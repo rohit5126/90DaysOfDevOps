@@ -77,4 +77,34 @@ sudo su tokyo # it does not require pass as you are using root to login
 #now craete a file and test if everything works fine.
 ```
 
+## Task 5: Team Workspace
+```bash
+sudo adduser nairobi #to add new user
 
+cat /etc/passwd # to check if user is added
+
+sudo addgroup project-team #to add group
+
+cat /etc/group #to check if group is added
+
+sudo usermod -aG project-team nairobi #to add nairobi to the new group project-team
+sudo usermod -aG project-team tokyo   #to add tokyo to the new group project-team
+
+groups nairobi #checking nairobi groups
+
+getent group project-team # to see list of users in project-team
+
+sudo mkdir /opt/team-workspace #creating a new dir
+cd /opt
+ls
+ls -lh # checking the permissions and other details for the dir.
+
+sudo chown :project-team team-workspace  #changing group ownership of the dir.
+
+ls -lh
+
+sudo chmod 775 team-workspace #adding write permission for the group
+
+ls -lh  #confirming the changes
+su - nairobi #log in as user nairobi to test
+```
