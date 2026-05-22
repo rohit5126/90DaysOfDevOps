@@ -41,4 +41,12 @@ getent group admins
 #to remove user for group
 sudo usermod -rG admins berlin
 ```
-## Task 2: Shared Directory
+## Task 2: Shared Directory\
+
+**create a dir in /opt**
+```bash
+sudo mkdir /opt/dev-projects
+```
+
+**set groups owners to developers**
+
