@@ -34,7 +34,8 @@ system events security activities.(this is most importat dir for devops engineer
 ```bash
 du -sh /var/log/* 2>/dev/null | sort -h | tail -5
 
-# this will sort the log files dir in log folder and display the 5 largest folders, also if tere will be any error message it will be
+# this will sort the log files dir in log folder and display the 5 largest folders,
+also if tere will be any error message it will be
 discarded using 2>/dev/null
 ```
 
