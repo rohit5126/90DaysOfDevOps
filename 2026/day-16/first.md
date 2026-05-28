@@ -84,7 +84,7 @@ while [ $i -le 10 ]; do
 done
 
 #________________________function__________________________________
-
+```bash
 read -p "enter name of user:  " name
 
 function useradd(){
@@ -105,13 +105,17 @@ function verify(){
 }
 
 verify
-
+```
 **to use function in another script**
+
 source ./functions.sh
+
 verify
+
 useradd
 
 **to get past argument error**
+
 set default value of first argument.
 
 n=${1:-"defaultvalue"}
