@@ -50,7 +50,7 @@ done
 ```
 
 ## Task 4: Install Packages via Script
-'''bash
+```bash
 #!/bin/bash
 x=("nginx" "wget" "curl")
 
@@ -66,7 +66,7 @@ for i in "${x[@]}"; do
     fi
 done
 ```
-**# by using this command 'dpkg -s "$i" >/dev/null 2>&1' we are sending both the stdout and stderr to /dev/null(discard).
+**by using this command 'dpkg -s "$i" >/dev/null 2>&1' we are sending both the stdout and stderr to /dev/null(discard).
 >/dev/null this send stdout to discard. 2>&1 this send stderr to same place where stdout goes.
 so commands print nothing only uses exit code in if. so when command gives exit code 0 which is true.if condition satisfies and return what is inside.
-and when command gives any other exit code it becomes false and goes to else condition.
+and when command gives any other exit code it becomes false and goes to else condition.**
