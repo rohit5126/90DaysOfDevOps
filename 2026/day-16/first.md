@@ -4,7 +4,7 @@
 
 #___________________________________BASIC_________________________________________
 
-
+```bash
 name="rohit"
 echo "the name is $name"
 
@@ -33,18 +33,18 @@ for multi
         line commment
 
 comment
-
+```
 #___________________CONDITIONAL____________________________
-
+```bash
 name=$1
 if [ $name == "pinda" ]; then
         echo "this is from dhurandhar"
 else
         echo "this is from another movie"
 fi
-
+```
 #________________to check file exist or not_________________________
-
+```bash
 if [ -f $2 ]; then
         echo " file exist"
 else
@@ -52,7 +52,7 @@ else
 fi
 
 #_- use -d for dir_
-
+```
 
 
 
@@ -60,7 +60,7 @@ fi
 
 #______________for-Loops_____________________________________
 
-
+```bash
 for i in {1..5}; do
         echo "$i"
 done
@@ -72,9 +72,9 @@ for i in $(cat $2); do  #for i in $(cat text.txt); do
     echo $i
 done 
 
-
+```
 #____________________________while loop______________________-
-
+```bash
 read -p "entier a number between 1 to 9:  " i
 
 while [ $i -le 10 ]; do
@@ -82,7 +82,7 @@ while [ $i -le 10 ]; do
         ((i++))
 
 done
-
+```
 #________________________function__________________________________
 ```bash
 read -p "enter name of user:  " name
