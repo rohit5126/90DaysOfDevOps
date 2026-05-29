@@ -57,3 +57,40 @@ Document: What does each flag do?
 **set -o pipefail → when there is pipeline command in script this set ensures that the script only continues if both the commands in pipeline
 is success, else the script will immediately exit.**
 ```bash
+#!/bin/bash
+
+set -euo pipefail
+n=2
+if [ $n == 0 ]; then
+        echo "great"
+else
+        echo "not great"
+fi
+
+getent passwd tokyo >/dev/null 2>&1 | df -h >/dev/null
+echo $?
+
+echo "file creation completed"
+echo "if this runs that means set is not workinig"
+```
+
+## Task 4: Local Variables
+```bash
+#!/bin/bash
+
+read -p "enetr a number: " n
+
+function number(){
+        local m=5
+        echo "global varaible is $n"
+        echo "local variabke is $m"
+}
+
+number
+
+echo "global varaible work everywhere so here it is $n"
+
+echo "local varaibe does not $m"
+```
+
+## Task 5: Build a Script — System Info Reporter
