@@ -94,7 +94,8 @@ echo "local varaibe does not $m"
 ```
 
 ## Task 5: Build a Script — System Info Reporter
-Sort by Usage Percentage (Busiest first):
+
+Sort by Usage Percentage:
 df -h | sort -hrk 5
 -h: Compares human-readable numbers (e.g., 2K, 1G).
 -r: Reverses the result (largest or highest percentage first).
@@ -105,6 +106,8 @@ df -h | sort -hrk 5
 
 #function to print hostname and OS info
 
+set -euo pipefail
+
 function info(){
         re=$(hostname && uname -o)
         echo $re
@@ -114,6 +117,50 @@ function uptimeinfo(){
         re=$(uptime -p)
         echo $re
 }
+
+function diskusage(){
+        echo "the 5 top disk usage by size "
+        echo "Name             size  used   avail "
+        df -h | sort -hrk 3 | head -5
+
+}
+function memoryusage(){
+        re=$(free -h | awk 'NR==2 {print $3}')
+        echo $re
+
+}
+
+function cpu(){
+        ps -aux --sort=-%cpu | head -6
+
+}
+
+function main(){
+
+        echo "-----------------------------------------------------------------"
+        echo " Below are the system information of this server."
+        echo "*****************************************************************"
+        echo "The Ip address and operating system of the server are"
+        info
+        echo "-----------------------------------------------------------------"
+        echo "Uptime info of the system is "
+        uptimeinfo
+        echo "-----------------------------------------------------------------"
+
+        echo "The disk usage info of the system is "
+        diskusage
+        echo "-----------------------------------------------------------------"
+
+        echo "The memory usgae of the system is "
+        memoryusage
+        echo "-----------------------------------------------------------------"
+
+        echo "Top 5 CPU-consuming processes"
+        cpu
+}
+
+main
+```
 
 function diskusage(){
         echo "the disk usage list is below "
