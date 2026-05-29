@@ -97,8 +97,11 @@ echo "local varaibe does not $m"
 
 Sort by Usage Percentage:
 df -h | sort -hrk 5
+
 -h: Compares human-readable numbers (e.g., 2K, 1G).
+
 -r: Reverses the result (largest or highest percentage first).
+
 -k 3: Specifies the 3rd column, which is used column.
 
 ```bash
@@ -162,9 +165,3 @@ function main(){
 main
 ```
 
-function diskusage(){
-        echo "the disk usage list is below "
-        echo "Name             size  used   avail "
-        df -h | sort -hrk 3 | head -5
-
-}
