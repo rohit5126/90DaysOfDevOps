@@ -94,3 +94,30 @@ echo "local varaibe does not $m"
 ```
 
 ## Task 5: Build a Script — System Info Reporter
+Sort by Usage Percentage (Busiest first):
+df -h | sort -hrk 5
+-h: Compares human-readable numbers (e.g., 2K, 1G).
+-r: Reverses the result (largest or highest percentage first).
+-k 3: Specifies the 3rd column, which is used column.
+
+```bash
+#!/bin/bash
+
+#function to print hostname and OS info
+
+function info(){
+        re=$(hostname && uname -o)
+        echo $re
+}
+
+function uptimeinfo(){
+        re=$(uptime -p)
+        echo $re
+}
+
+function diskusage(){
+        echo "the disk usage list is below "
+        echo "Name             size  used   avail "
+        df -h | sort -hrk 3 | head -5
+
+}
