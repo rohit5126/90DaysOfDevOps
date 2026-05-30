@@ -7,16 +7,19 @@
 **Physical Layer which is your router, laptop, lan cable. these are part of physical layer*
 
 ⬇️
+
 **Data link layer-layer2**
 
 **Data link layer which is physical addressing, MAC address(media access controller)*
 
 ⬇️
+
 **Network layer-layer 3**
 
 **Network layer requests through packets(ip Add)*
 
 ⬇️
+
 **Transport layer-layer 4**
 
 **Transport layer transports packet using protocol(TCP/IP, UDP)*
