@@ -1,6 +1,6 @@
 # Day 14 – Networking Fundamentals & Hands-on Checks
 
-## & layers of OSI Model
+## 7 layers of OSI Model
 
 **Physical Layer-layer1**
 
