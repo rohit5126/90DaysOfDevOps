@@ -43,7 +43,7 @@ trainwithshubham.com.   300     IN      A       3.33.251.168
 
 [Domain name] -------| [TTL]  |----| [Record] |-----[IP]------|
 
-# Task 2: IP Addressing
+## Task 2: IP Addressing
 
 IPV4(internet protocol version 4) is a unique numerical identifier assigned to a device on a network.
 
@@ -56,7 +56,7 @@ this all are private IP ranges-
 172.16.x.x – 172.31.x.x, 
 192.168.x.x
 
-# Task 3: CIDR & Subnetting
+## Task 3: CIDR & Subnetting
 
 **/24 mean 192.168.1.0/24 - it means that there will be 2^(32-24) = 256 ip addresses.**
 
