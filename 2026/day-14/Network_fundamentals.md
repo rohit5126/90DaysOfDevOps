@@ -2,13 +2,13 @@
 
 ## 7 layers of OSI Model
 
-**Physical Layer-layer1**
+**Physical Layer-layer 1**
 
 **Physical Layer which is your router, laptop, lan cable. these are part of physical layer*
 
 ⬇️
 
-**Data link layer-layer2**
+**Data link layer-layer 2**
 
 **Data link layer which is physical addressing, MAC address(media access controller)*
 
@@ -44,7 +44,7 @@
 
 ## TCP/IP model
 
-**Network access layer -l**
+**Network access layer-1**
 
 **it is combination of physical layer and data link layer*
 
