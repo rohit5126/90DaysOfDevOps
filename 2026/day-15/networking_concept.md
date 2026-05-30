@@ -1,14 +1,14 @@
 # Day 15 – Networking Concepts: DNS, IP, Subnets & Ports
 
-# Task 1: DNS – How Names Become IPs.
+## Task 1: DNS – How Names Become IPs.
 
-## Explain in 3–4 lines: what happens when you type google.com in a browser?
+**Explain in 3–4 lines: what happens when you type google.com in a browser?**
 
 when we enter amazon.com in the browser it serches for any cache in browser or operating system if earlier visited the site. if it does not find any
 it goes to the DNS resolver(one of the populer resolver is google(8.8.8.8)). DNS resolver send it to root server, root server finds its top level domain and sends it to TLD server,
 TLD server sends it to specific server for Top level domain(.com,.in,.edu). TLd point it to authorization name server wher it gets the exact ip of the DNS and that goes to the 
 user machine and user is able to access the website.
-============================================================================================================================================================================================
+
 
 ## What are these record types?
 
