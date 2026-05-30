@@ -58,7 +58,7 @@ this all are private IP ranges-
 
 # Task 3: CIDR & Subnetting
 
-# /24 mean 192.168.1.0/24 - it means that there will be 2^(32-24) = 256 ip addresses.
+**/24 mean 192.168.1.0/24 - it means that there will be 2^(32-24) = 256 ip addresses.**
 
 out of which first IP is always network IP and cannot be used.
 
