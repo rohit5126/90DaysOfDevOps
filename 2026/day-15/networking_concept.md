@@ -41,7 +41,7 @@ trainwithshubham.com.   300     IN      A       15.197.225.128
 
 trainwithshubham.com.   300     IN      A       3.33.251.168
 
-[Domain name]          [TTL]         [Record]     [IP]
+[Domain name] -------| [TTL]  |----| [Record] |-----[IP]------|
 
 # Task 2: IP Addressing
 
