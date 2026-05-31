@@ -98,7 +98,12 @@ A port is a virtual communication endpoint that allows devices to differentiate 
 | 6379 | Redis   |
 | 27017|Mongo DB |
 
+# 5: Putting It Together
 
+You run curl http://myapp.com:8080 — what networking concepts from today are involved? **TCP handhsake**
+
+Your app can't reach a database at 10.0.1.50:3306 — what would you check first?
+**first step to check is if the port is istening "nc -zv 10.0.1.50:3306"
 
 
 
