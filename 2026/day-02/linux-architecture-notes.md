@@ -3,6 +3,7 @@
 ## The core components of Linux (kernel, user space, init/systemd)
 1.kernel – kernel contains the  code base of linux. It is the heart of the operating system. It is a brideg between software and hardware devices.
 2. init/systemd – it is the first process started by kernel. It is PID 1. It starts all the other remaining process.
+
 3. user namespace – it is an isolated environment created by kernel for each user  that isolates users and group Id’s in a process.
 
 ## How processes are created and managed
