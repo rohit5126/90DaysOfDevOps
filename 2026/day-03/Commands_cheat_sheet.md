@@ -107,5 +107,8 @@
 ### 6. Active Connections & Sockets
 
 1. 'ss -tunp' -> list all active TCP and UDP connection in real time.
-2. 'lsof -i -P -n | grep LISTEN' -> List all programs with network files currently open in listening mode. 
+2. 'lsof -i -P -n | grep LISTEN' -> List all programs with network files currently open in listening mode.
+
+### 7. arrayn convert in shell script.
+mapfile -t i < nginx.log
 
