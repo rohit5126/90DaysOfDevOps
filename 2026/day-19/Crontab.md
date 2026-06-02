@@ -104,6 +104,45 @@ function server_backup() {
 server_backup
 ```
 
+# Task 4: Combine — Scheduled Maintenance Script
+
+create a function.sh 
+```bash
+function delete_log(){
+        timestamp=$(date '+%Y-%m-%d_%H-%M-%S')
+        backup=($(find "$1/backup_"*.gz -maxdepth 1 -type "f" -newermt "$2" ! -newermt "$3"))
+
+        if [ "${#backup[@]}" -eq 0 ]; then
+                echo "No log file exist for time period provided"
+        else
+                echo "no of files deleted ${#backup[@]}"
+                for bk in "${backup[@]}"; do
+                        rm -f $bk
+                        echo $bk
+                done
+                echo "older logs deleted successfully"
+        fi
+}
 
 
+function rotation(){
+        timestamp=$(date '+%Y-%m-%d_%H-%M-%S')
+        find "$1"*.log -maxdepth 1 -type "f" | wc -l
+        tar -cvzf "$2/backup_$timestamp.gz" "$1"*.log > /dev/null 2>&1
+        echo "backup generated successfully for nginx $timestamp"
 
+}
+```
+
+create maintainence.sh
+```bash
+#!/bin/bash
+
+source /home/ubuntu/dating/function.sh
+
+delete_log /home/ubuntu/dating/backup/ 2026-06-01 2026-06-02
+
+rotation /var/log/nginx/ /home/ubuntu/dating/backup/
+```
+
+run maintainence.sh
