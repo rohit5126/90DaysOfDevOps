@@ -49,7 +49,37 @@ delete_log $stdate $endate
 Deletes .gz files older than 30 days**
 
 ```bash
-tar -cvrf "$dest/"*.log "$src" #to convert all the log file is a dir.
+tar -cvzf "$dest/"*.log "$src" #to convert all the log file is a dir.
+
+
+function rotation(){
+        find "$src"*.log -maxdepth 1 -type "f" | wc -l  #to get all the files getting compressed.
+        tar -cvzf "$dest/backup_$timestamp.gz" "$src"*.log > /dev/null 2>&1
+        echo "backup generated successfully for nginx $timestamp"
+
+}
 
 backup=($(find "/dest"*.gz -maxdepth 1 -type "f" -mtime +30   #to get files olderthan 30 days
+
+function delete_log(){
+        backup=($(find "$dest"*.gz  -maxdepth 1 -type "f" -mmin -130))  #to get files modified in last 130 mins
+
+        if [ "${#backup[@]}" -eq 0 ]; then
+
+                echo "No log file exist for time period provided"
+        else
+                echo "no of files deleted ${#backup[@]}"   #to get number of files deleted
+                for bk in "${backup[@]}"; do
+                        #rm -f $bk
+                        echo $bk
+                        echo "older logs deleted successfully"
+                done
+        fi
+}
 ```
+
+## Task 2: Server Backup Script
+
+
+
+
