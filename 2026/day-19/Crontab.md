@@ -45,8 +45,11 @@ function delete_log(){
 delete_log $stdate $endate
 ```
 
-**addition info for this Compresses .log files older than 7 days using gzip,
-Deletes .gz files older than 30 days**
+**addition info for this**
+
+**Compresses .log files older than 7 days using gzip**
+
+**Deletes .gz files older than 30 days**
 
 ```bash
 tar -cvzf "$dest/"*.log "$src" #to convert all the log file is a dir.
@@ -79,6 +82,27 @@ function delete_log(){
 ```
 
 ## Task 2: Server Backup Script
+
+```bash
+#!/bin/bash
+
+src=$1
+dest=$2
+
+set -e
+
+timestamp=$3
+
+function server_backup() {
+        tar -cvzf "$dest/backup_$timestamp.tar.gz" "$src" > /dev/null 2>&1
+        echo "backup completed for server"
+        du -sh "$dest/backup_$timestamp.tar.gz"
+
+
+}
+
+server_backup
+```
 
 
 
