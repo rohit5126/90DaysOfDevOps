@@ -65,6 +65,9 @@ done
 
 #(1..5) is the range from 1 to 5
 
+for file in *.log; do
+        echo $file
+done
 
 for i in $(cat $2); do  #for i in $(cat text.txt); do
     echo $i
@@ -151,5 +154,42 @@ Description	Example
 -n	True if string is not empty	[ -n "$a" ]
 
 < / >	Lexicographical order (requires [[ ... ]])	[[ "$a" < "$b" ]]
+
+Operator               evaluation
+
+-e                  The file or directory exists, regardless of its type.
+
+-f                 The path exists and is a regular file (not a directory or device).
+
+-d                  The path exists and is a directory.
+
+-s                   The file exists and has a size greater than zero (not empty).
+
+-r                   The file exists and grants read permission to the user.
+
+-w                    The file exists and grants write permission to the user.
+
+-x                   The file exists and grants execute permission to the user.
+
+-o                  The file exists and is owned to the user.
+
+-h/-l                The file exists and is a symbolic link.
+
+-------------------------------------------------------------------------------------------------
+
+Document the most useful flags/patterns for each:
+1. `grep` — search patterns, `-i`, `-r`, `-c`, `-n`, `-v`, `-E`
+2. `awk` — print columns, field separator, patterns, `BEGIN/END`
+3. `sed` — substitution, delete lines, in-place edit
+4. `cut` — extract columns by delimiter
+5. `sort` — alphabetical, numerical, reverse, unique
+6. `uniq` — deduplicate, count
+7. `tr` — translate/delete characters
+8. `wc` — line/word/char count
+9. `head` / `tail` — first/last N lines, follow mode
+--------------------------------------------------------------------------------------------------------
+
+
+
 
 
