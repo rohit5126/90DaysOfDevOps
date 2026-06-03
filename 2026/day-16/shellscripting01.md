@@ -39,24 +39,7 @@ echo " hello $name, what is fav tool"
 
 ## Task 4: If-Else Conditions
 
-Operator 
-Description	Example
--eq	Equal to	[ $a -eq $b ]
--ne	Not equal to	[ $a -ne $b ]
--gt	Greater than	[ $a -gt $b ]
--ge	Greater than or equal to	[ $a -ge $b ]
--lt	Less than	[ $a -lt $b ]
--le	Less than or equal to	[ $a -le $b ]
-String Comparison Operators
-Used to compare text strings. 
 
-Operator 
-Description	Example
-= or ==	True if strings are equal	[ "$a" = "$b" ]
-!=	True if strings are not equal	[ "$a" != "$b" ]
--z	True if string is empty	[ -z "$a" ]
--n	True if string is not empty	[ -n "$a" ]
-< / >	Lexicographical order (requires [[ ... ]])	[[ "$a" < "$b" ]]
 
 ```bash
 
