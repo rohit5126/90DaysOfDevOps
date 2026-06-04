@@ -1,5 +1,19 @@
 # Shell Scripting Cheat Sheet: My Own Reference Guide.
 
+### Task 8: Bonus — Quick Reference Table
+Create a summary table like this at the top of your cheat sheet:
+
+| Topic | Key Syntax | Example |
+|-------|-----------|---------|
+| Variable | `VAR="value"` | `NAME="DevOps"` |
+| Argument | `$1`, `$2` | `./script.sh arg1` |
+| If | `if [ condition ]; then` | `if [ -f file ]; then` |
+| For loop | `for i in list; do` | `for i in 1 2 3; do` |
+| Function | `name() { ... }` | `greet() { echo "Hi"; }` |
+| Grep | `grep pattern file` | `grep -i "error" log.txt` |
+| Awk | `awk '{print $1}' file` | `awk -F: '{print $1}' /etc/passwd` |
+| Sed | `sed 's/old/new/g' file` | `sed -i 's/foo/bar/g' config.txt` |
+
 #___________________________________BASIC_________________________________________
 
 ```bash
@@ -127,59 +141,41 @@ n=${1:-"defaultvalue"}
 
 **"$@" take every arg into a list**
 
-Operator 
-Description	Example
--eq	Equal to	[ $a -eq $b ]
-
--ne	Not equal to	[ $a -ne $b ]
-
--gt	Greater than	[ $a -gt $b ]
-
--ge	Greater than or equal to	[ $a -ge $b ]
-
--lt	Less than	[ $a -lt $b ]
-
--le	Less than or equal to	[ $a -le $b ]
+Operator  |   Description          |      Example
+-eq	  |    Equal to	           |     [ $a -eq $b ]
+-ne	  |   Not equal to         |     [ $a -ne $b ]
+-gt	  |   Greater than         |     [ $a -gt $b ]
+-ge	  |Greater than or equal to|  	[ $a -ge $b ]
+-lt	  |    Less than	   |    [ $a -lt $b ]
+-le	  |  Less than or equal to |    [ $a -le $b ]
 
 String Comparison Operators Used to compare text strings. 
 
-Operator 
-Description	Example
-= or ==	True if strings are equal	[ "$a" = "$b" ]
+Operator   |      Description	            |   Example
+= or ==	   | True if strings are equal      |  [ "$a" = "$b" ]
+!=	   |True if strings are not equal   |   [ "$a" != "$b" ]
+-z	   |True if string is empty	    |   [ -z "$a" ]
+-n	   |True if string is not empty	    |  [ -n "$a" ]
+< / >	   |Lexicographical order(requires [[ ... ]]) |	[[ "$a" < "$b" ]]
 
-!=	True if strings are not equal	[ "$a" != "$b" ]
-
--z	True if string is empty	[ -z "$a" ]
-
--n	True if string is not empty	[ -n "$a" ]
-
-< / >	Lexicographical order (requires [[ ... ]])	[[ "$a" < "$b" ]]
-
-Operator               evaluation
-
--e                  The file or directory exists, regardless of its type.
-
--f                 The path exists and is a regular file (not a directory or device).
-
--d                  The path exists and is a directory.
-
--s                   The file exists and has a size greater than zero (not empty).
-
--r                   The file exists and grants read permission to the user.
-
--w                    The file exists and grants write permission to the user.
-
--x                   The file exists and grants execute permission to the user.
-
--o                  The file exists and is owned to the user.
-
--h/-l                The file exists and is a symbolic link.
+Operator |        evaluation
+-e       |   The file or directory exists, regardless of its type.
+-f       |   The path exists and is a regular file (not a directory or device).
+-d       |   The path exists and is a directory.
+-s       |   The file exists and has a size greater than zero (not empty).
+-r       |   The file exists and grants read permission to the user.
+-w       |   The file exists and grants write permission to the user.
+-x       |   The file exists and grants execute permission to the user.
+-o       |   The file exists and is owned to the user.
+-h/-l    |   The file exists and is a symbolic link.
 
 -------------------------------------------------------------------------------------------------
 
 Document the most useful flags/patterns for each:
+
 1. `grep` — search patterns, `-i`, `-r`, `-c`, `-n`, `-v`, `-E`
-   '''bash
+   
+   ```bash
 
    grep -c "error" file.log
 
@@ -191,7 +187,8 @@ Document the most useful flags/patterns for each:
 
    grep -v "error" file.log #will search for all lines without error in it.
    ```
-3. `awk` — print columns, field separator, patterns, `BEGIN/END`
+2. `awk` — print columns, field separator, patterns, `BEGIN/END`
+   
    ```bash
    awk '{print $1, $3}' data.txt #prints 1st and 3rd column
 
@@ -210,7 +207,8 @@ Document the most useful flags/patterns for each:
    awk -v limit=150 '$1 > limit' rr.txt #this takes a limit as 150 and prints all value > 150 in $1
    ```
    
-5. `sed` — substitution, delete lines, in-place edit
+3. `sed` — substitution, delete lines, in-place edit
+   
    ```bash
    # Search & Replace: Replace the first occurrence of a word per line:
    sed 's/old-word/new-word/' filename.txt
@@ -221,7 +219,8 @@ Document the most useful flags/patterns for each:
    # In-place Editing: Modify the actual file instead of just outputting the result to the terminal:
    sed -i 's/word/replacement/g' filename.txt
    ```
-7. `cut` — extract columns by delimiter
+4. `cut` — extract columns by delimiter
+   
    ```bash
    # Pull the 1st field from a comma-separated string
    echo "John,Doe,30,Engineer" | cut -d ',' -f 1
@@ -230,7 +229,8 @@ Document the most useful flags/patterns for each:
    # Grab the 1st and 4th fields from the system passwd file
    cut -d ':' -f 1,4 /etc/passwd
    ```
-9. `sort` — alphabetical, numerical, reverse, unique
+5. `sort` — alphabetical, numerical, reverse, unique
+   
     ```bash
     Alphabetical        |  Sort(None) |  sort names.txt
     Reverse Order       |     -r      |  sort -r names.txt
@@ -241,8 +241,8 @@ Document the most useful flags/patterns for each:
     Save In-Place       |     -o      |  sort -o file.txt file.txt
     ```
     
-11. `uniq` — deduplicate, count
-    ```bash
+6. `uniq` — deduplicate, count
+    
     Option  |      Purpose                                           |        PracticalExample
     Default |   Removes sequential duplicate lines.                  |      sort files.txt | uniq                            
     -c      | Prefixes each line with its count of occurrences.      |      sort files.txt | uniq -c             
@@ -250,9 +250,9 @@ Document the most useful flags/patterns for each:
     -u      | Prints only unique lines (completely skips duplicates).|     sort files.txt | uniq -u
     -i      | Ignores differences in uppercase and lowercase.        |     sort files.txt | uniq -i
     
-13. `tr` — translate/delete characters
+7. `tr` — translate/delete characters
     
-15. `wc` — line/word/char count
+8. `wc` — line/word/char count
     ```bash
     Option    |       Description        |    Output Example
      -l       | Counts newlines / lines. |    42 file.txt
@@ -266,7 +266,7 @@ Document the most useful flags/patterns for each:
     longest line in characters.          |   17 file.txt
     ```
     
-17. `head` / `tail` — first/last N lines, follow mode
+9. `head` / `tail` — first/last N lines, follow mode
 -----------------------------------------------------------------------------------------------------------
 
 # Task 6: Useful Patterns and One-Liners
