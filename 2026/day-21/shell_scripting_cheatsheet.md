@@ -232,13 +232,13 @@ Document the most useful flags/patterns for each:
    ```
 9. `sort` — alphabetical, numerical, reverse, unique
     ```bash
-    Alphabetical    Sort(None)   sort names.txt
-    Reverse Order        -r   sort -r names.txt
-    Numeric Value Sort   -n   sort -n numbers.txt
-    Unique Values Only   -u   sort -u items.txt
-    Case-Insensitive     -f   sort -f mixed_case.txt
-    Human-Readable Sizes -h   sort -h sizes.txt (e.g., 1K, 2M, 3G)
-    Save In-Place        -o   sort -o file.txt file.txt
+    Alphabetical        |  Sort(None) |  sort names.txt
+    Reverse Order       |     -r      |  sort -r names.txt
+    Numeric Value Sort  |     -n      |  sort -n numbers.txt
+    Unique Values Only  |     -u      |  sort -u items.txt
+    Case-Insensitive    |     -f      |  sort -f mixed_case.txt
+    Human-Readable Sizes|     -h      |  sort -h sizes.txt (e.g., 1K, 2M, 3G)
+    Save In-Place       |     -o      |  sort -o file.txt file.txt
     ```
     
 11. `uniq` — deduplicate, count
@@ -253,6 +253,18 @@ Document the most useful flags/patterns for each:
 13. `tr` — translate/delete characters
     
 15. `wc` — line/word/char count
+    ```bash
+    Option    |       Description        |    Output Example
+     -l       | Counts newlines / lines. |    42 file.txt
+     -w       | Counts words (delimited  |
+          byspaces, tabs, or newlines).  |   350 file.txt
+     -m       |Counts characters.        |   2048 file.txt
+     -c       |Counts bytes              |
+    (multi-byte characters like emojis   |
+    take up more bytes).                 |   2048 file.txt
+     -L       |Prints the length of the
+    longest line in characters.          |   17 file.txt
+    ```
     
 17. `head` / `tail` — first/last N lines, follow mode
 --------------------------------------------------------------------------------------------------------
