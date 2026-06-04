@@ -256,20 +256,71 @@ Document the most useful flags/patterns for each:
     ```bash
     Option    |       Description        |    Output Example
      -l       | Counts newlines / lines. |    42 file.txt
-     -w       | Counts words (delimited  |
+     -w       | Counts words (delimited  
           byspaces, tabs, or newlines).  |   350 file.txt
      -m       |Counts characters.        |   2048 file.txt
-     -c       |Counts bytes              |
-    (multi-byte characters like emojis   |
+     -c       |Counts bytes              
+    (multi-byte characters like emojis   
     take up more bytes).                 |   2048 file.txt
      -L       |Prints the length of the
     longest line in characters.          |   17 file.txt
     ```
     
 17. `head` / `tail` — first/last N lines, follow mode
---------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
 
+# Task 6: Useful Patterns and One-Liners
+Include at least 5 real-world one-liners you find useful. Examples:
+- Find and delete files older than N days
+  ## find /home/ubuntu/backup/*.gz -maxdepth 1 -type f mtime +N -delete
+- Count lines in all `.log` files
+  ## wc -l *.log
+- Replace a string across multiple files
+  ## sed 's/echo/print/g' *.sh
+- Check if a service is running
+  ## systemctl status nginx | grep -i active
+- Monitor disk usage with alerts
+'''bash
+#!/bin/bash
 
+# --- CONFIGURATION ---
+THRESHOLD=80                    # Alert trigger percentage (e.g., 80%)
+EMAIL="admin@yourdomain.com"    # Destination email for alerts
+HOSTNAME=$(hostname)            # Server name for context
+
+# --- MONITORING LOGIC ---
+# 1. df -Ph gets POSIX-compliant human-readable disk data.
+# 2. grep -vE excludes standard pseudo-filesystems.
+# 3. awk extracts the use percentage and the mount point partition.
+df -Ph | grep -vE '^Filesystem|tmpfs|cdrom|devtmpfs' | awk '{ print $5 " " $6 }' | while read -r output; do
+    
+    # Extract numerical percentage value
+    usage=$(echo "$output" | awk '{print $1}' | sed 's/%//g')
+    partition=$(echo "$output" | awk '{print $2}')
+    
+    # Check if partition usage meets or exceeds the threshold
+    if [ "$usage" -ge "$THRESHOLD" ]; then
+        ALERT_MSG="Warning: Partition '$partition' on $HOSTNAME is at ${usage}% capacity!"
+        echo "$ALERT_MSG"
+        
+        # Un-comment the line below to enable email alerts (requires mailutils/mailx)
+        # echo "$ALERT_MSG" | mail -s "CRITICAL: Disk Space Alert on $HOSTNAME" "$EMAIL"
+    fi
+done
+```
+- Parse CSV or JSON from command line
+```bash
+# input.csv content:
+# John,Doe,30,New York
+
+# Skip headers if necessary, then read column by column
+while IFS="," read -r first_name last_name age city; do
+    echo "$first_name lives in $city."
+done < input.csv
+```
+
+- Tail a log and filter for errors in real time
+## tail -F /path/to/your/app.log | grep -i "error"
 
 
 
