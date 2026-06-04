@@ -280,7 +280,7 @@ Include at least 5 real-world one-liners you find useful. Examples:
 - Check if a service is running
   ## systemctl status nginx | grep -i active
 - Monitor disk usage with alerts
-'''bash
+```bash
 #!/bin/bash
 
 # --- CONFIGURATION ---
