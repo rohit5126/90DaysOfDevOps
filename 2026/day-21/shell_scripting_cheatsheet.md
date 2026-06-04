@@ -246,17 +246,19 @@ Document the most useful flags/patterns for each:
     ```
     
 6. `uniq` — deduplicate, count
-    
+   
+    ```bash
     Option  |      Purpose                                           |        PracticalExample
     Default |   Removes sequential duplicate lines.                  |      sort files.txt | uniq                            
     -c      | Prefixes each line with its count of occurrences.      |      sort files.txt | uniq -c             
     -d      | Prints only the lines that are duplicated.             |      sort files.txt | uniq -d                              
     -u      | Prints only unique lines (completely skips duplicates).|     sort files.txt | uniq -u
     -i      | Ignores differences in uppercase and lowercase.        |     sort files.txt | uniq -i
+    ```
     
-7. `tr` — translate/delete characters
+8. `tr` — translate/delete characters
     
-8. `wc` — line/word/char count
+9. `wc` — line/word/char count
     ```bash
     Option    |       Description                                      |    Output Example
      -l       | Counts newlines / lines.                               |    42 file.txt
@@ -266,7 +268,7 @@ Document the most useful flags/patterns for each:
      -L       |Prints the length of the longest line in characters.    |   17 file.txt
     ```
     
-9. `head` / `tail` — first/last N lines, follow mode
+10. `head` / `tail` — first/last N lines, follow mode
 -----------------------------------------------------------------------------------------------------------
 
 # Task 6: Useful Patterns and One-Liners
