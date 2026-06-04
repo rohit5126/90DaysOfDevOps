@@ -141,6 +141,7 @@ n=${1:-"defaultvalue"}
 
 **"$@" take every arg into a list**
 
+```bash
 Operator  |   Description          |      Example
 -eq	  |    Equal to	           |     [ $a -eq $b ]
 -ne	  |   Not equal to         |     [ $a -ne $b ]
@@ -148,16 +149,19 @@ Operator  |   Description          |      Example
 -ge	  |Greater than or equal to|  	[ $a -ge $b ]
 -lt	  |    Less than	   |    [ $a -lt $b ]
 -le	  |  Less than or equal to |    [ $a -le $b ]
+```
 
 String Comparison Operators Used to compare text strings. 
 
+```bash
 Operator   |      Description	            |   Example
 = or ==	   | True if strings are equal      |  [ "$a" = "$b" ]
 !=	   |True if strings are not equal   |   [ "$a" != "$b" ]
 -z	   |True if string is empty	    |   [ -z "$a" ]
 -n	   |True if string is not empty	    |  [ -n "$a" ]
 < / >	   |Lexicographical order(requires [[ ... ]]) |	[[ "$a" < "$b" ]]
-
+```
+```bash
 Operator |        evaluation
 -e       |   The file or directory exists, regardless of its type.
 -f       |   The path exists and is a regular file (not a directory or device).
@@ -168,7 +172,7 @@ Operator |        evaluation
 -x       |   The file exists and grants execute permission to the user.
 -o       |   The file exists and is owned to the user.
 -h/-l    |   The file exists and is a symbolic link.
-
+```
 -------------------------------------------------------------------------------------------------
 
 Document the most useful flags/patterns for each:
