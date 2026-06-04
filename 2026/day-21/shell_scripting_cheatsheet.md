@@ -143,23 +143,23 @@ n=${1:-"defaultvalue"}
 
 ```bash
 Operator  |   Description          |      Example
--eq	  |    Equal to	           |     [ $a -eq $b ]
--ne	  |   Not equal to         |     [ $a -ne $b ]
--gt	  |   Greater than         |     [ $a -gt $b ]
--ge	  |Greater than or equal to|  	[ $a -ge $b ]
--lt	  |    Less than	   |    [ $a -lt $b ]
--le	  |  Less than or equal to |    [ $a -le $b ]
+-eq       |    Equal to            |     [ $a -eq $b ]
+-ne       |   Not equal to         |     [ $a -ne $b ]
+-gt       |   Greater than         |     [ $a -gt $b ]
+-ge       |Greater than or equal to|  	[ $a -ge $b ]
+-lt       |    Less than           |    [ $a -lt $b ]
+-le       |  Less than or equal to |    [ $a -le $b ]
 ```
 
 String Comparison Operators Used to compare text strings. 
 
 ```bash
-Operator   |      Description	            |   Example
+Operator   |      Description               |   Example
 = or ==	   | True if strings are equal      |  [ "$a" = "$b" ]
-!=	   |True if strings are not equal   |   [ "$a" != "$b" ]
--z	   |True if string is empty	    |   [ -z "$a" ]
--n	   |True if string is not empty	    |  [ -n "$a" ]
-< / >	   |Lexicographical order(requires [[ ... ]]) |	[[ "$a" < "$b" ]]
+!=         |True if strings are not equal   |   [ "$a" != "$b" ]
+-z         |True if string is empty         |   [ -z "$a" ]
+-n         |True if string is not empty	    |  [ -n "$a" ]
+< / >      |Lexicographical order(requires [[ ... ]]) |	[[ "$a" < "$b" ]]
 ```
 ```bash
 Operator |        evaluation
@@ -258,16 +258,12 @@ Document the most useful flags/patterns for each:
     
 8. `wc` — line/word/char count
     ```bash
-    Option    |       Description        |    Output Example
-     -l       | Counts newlines / lines. |    42 file.txt
-     -w       | Counts words (delimited  
-          byspaces, tabs, or newlines).  |   350 file.txt
-     -m       |Counts characters.        |   2048 file.txt
-     -c       |Counts bytes              
-    (multi-byte characters like emojis   
-    take up more bytes).                 |   2048 file.txt
-     -L       |Prints the length of the
-    longest line in characters.          |   17 file.txt
+    Option    |       Description                                      |    Output Example
+     -l       | Counts newlines / lines.                               |    42 file.txt
+     -w       | Counts words (delimited byspaces, tabs, or newlines).  |   350 file.txt
+     -m       |Counts characters.                                      |   2048 file.txt
+     -c       |Counts bytes (multi-byte characters like emojis take up more bytes).|   2048 file.txt
+     -L       |Prints the length of the longest line in characters.    |   17 file.txt
     ```
     
 9. `head` / `tail` — first/last N lines, follow mode
