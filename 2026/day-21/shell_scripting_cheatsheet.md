@@ -323,4 +323,12 @@ done < input.csv
 ## tail -F /path/to/your/app.log | grep -i "error"
 
 
+### Task 7: Error Handling and Debugging
+Document with examples:
+1. Exit codes — `$?`, `exit 0`, `exit 1`
+2. `set -e` — exit on error
+3. `set -u` — treat unset variables as error
+4. `set -o pipefail` — catch errors in pipes
+5. `set -x` — debug mode (trace execution)
+6. Trap — `trap 'cleanup' EXIT`
 
