@@ -117,7 +117,7 @@ useradd
 
 **to get past argument error**
 
-set default value of first argument. but $1 will still be empty if no value is assigned. use $n in rest of the script if an argument is passed it will be assigned to n.
+set default value of first argument. but $1 will still be empty if no args is passed. use $n in rest of the script if an argument is passed it will be assigned to n.
 
 n=${1:-"defaultvalue"}
 
