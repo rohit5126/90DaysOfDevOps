@@ -179,14 +179,82 @@ Operator               evaluation
 
 Document the most useful flags/patterns for each:
 1. `grep` — search patterns, `-i`, `-r`, `-c`, `-n`, `-v`, `-E`
-2. `awk` — print columns, field separator, patterns, `BEGIN/END`
-3. `sed` — substitution, delete lines, in-place edit
-4. `cut` — extract columns by delimiter
-5. `sort` — alphabetical, numerical, reverse, unique
-6. `uniq` — deduplicate, count
-7. `tr` — translate/delete characters
-8. `wc` — line/word/char count
-9. `head` / `tail` — first/last N lines, follow mode
+   '''bash
+
+   grep -c "error" file.log
+
+   grep -n 'critical" file.log
+
+   grep -i "error" file.log #case insensitive.
+
+   grep -r "error" /home/ubuntu/backup
+
+   grep -v "error" file.log #will search for all lines without error in it.
+   ```
+3. `awk` — print columns, field separator, patterns, `BEGIN/END`
+   ```bash
+   awk '{print $1, $3}' data.txt #prints 1st and 3rd column
+
+   awk -F':' '{print $1}' /etc/passwd #this will change seperator to : by default it is white space.
+
+   awk '/ERROR/ {print $0}' server.log #this will print lines that contain particula patter(ERROR)
+
+   awk '$1 > 100 {print $1, $3}' rr.txt #to provide a condition
+
+   awk '{sum += $1} END {print "Total Sum:", sum}' rr.txt
+   
+   #BEGIN blocks execute before any text is read.
+   
+   #END blocks execute after all input has been processed.
+
+   awk -v limit=150 '$1 > limit' rr.txt #this takes a limit as 150 and prints all value > 150 in $1
+   ```
+   
+5. `sed` — substitution, delete lines, in-place edit
+   ```bash
+   # Search & Replace: Replace the first occurrence of a word per line:
+   sed 's/old-word/new-word/' filename.txt
+   # Global Replacement: Replace every occurrence of a word per line:
+   sed 's/old-word/new-word/g' filename.txt
+   # Delete Lines: Delete blank lines in a file:
+   sed '/^$/d' filename.txt
+   # In-place Editing: Modify the actual file instead of just outputting the result to the terminal:
+   sed -i 's/word/replacement/g' filename.txt
+   ```
+7. `cut` — extract columns by delimiter
+   ```bash
+   # Pull the 1st field from a comma-separated string
+   echo "John,Doe,30,Engineer" | cut -d ',' -f 1
+   # Output: John
+
+   # Grab the 1st and 4th fields from the system passwd file
+   cut -d ':' -f 1,4 /etc/passwd
+   ```
+9. `sort` — alphabetical, numerical, reverse, unique
+    ```bash
+    Alphabetical    Sort(None)   sort names.txt
+    Reverse Order        -r   sort -r names.txt
+    Numeric Value Sort   -n   sort -n numbers.txt
+    Unique Values Only   -u   sort -u items.txt
+    Case-Insensitive     -f   sort -f mixed_case.txt
+    Human-Readable Sizes -h   sort -h sizes.txt (e.g., 1K, 2M, 3G)
+    Save In-Place        -o   sort -o file.txt file.txt
+    ```
+    
+11. `uniq` — deduplicate, count
+    ```bash
+    Option  |      Purpose                                           |        PracticalExample
+    Default |   Removes sequential duplicate lines.                  |      sort files.txt | uniq                            
+    -c      | Prefixes each line with its count of occurrences.      |      sort files.txt | uniq -c             
+    -d      | Prints only the lines that are duplicated.             |      sort files.txt | uniq -d                              
+    -u      | Prints only unique lines (completely skips duplicates).|     sort files.txt | uniq -u
+    -i      | Ignores differences in uppercase and lowercase.        |     sort files.txt | uniq -i
+    
+13. `tr` — translate/delete characters
+    
+15. `wc` — line/word/char count
+    
+17. `head` / `tail` — first/last N lines, follow mode
 --------------------------------------------------------------------------------------------------------
 
 
