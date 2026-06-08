@@ -72,6 +72,7 @@
 | `git merge <branch>` | Merge branch into current branch |
 | `git merge --no-ff <branch>` | Force a merge commit |
 | `git merge --abort` | Cancel merge in progress |
+| `git merge <branch> --squash HEAD~N` | gets all data ignores all the commit and Head pointer is unchanged
 
 ---
 
