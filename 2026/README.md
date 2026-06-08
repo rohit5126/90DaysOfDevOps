@@ -47,7 +47,7 @@ A day-by-day index of the complete 90-day DevOps challenge. Click any day to jum
 | [Day 22](day-22/) | Introduction to Git: Your First Repository |
 | [Day 23](day-23/) | Git Branching and Working with GitHub |
 | [Day 24](day-24/) | Advanced Git: Merge, Rebase, Stash and Cherry Pick |
-| [Day 25](day-25/) | Git Reset vs Revert and Branching Strategies |
+| [Day 25](day-25/) | Git Reset vs Revert and Branching Strategies & Git Cheet sheet |
 | [Day 26](day-26/) | GitHub CLI: Manage GitHub from Your Terminal |
 | [Day 27](day-27/) | GitHub Profile Makeover: Build Your Developer Identity |
 | [Day 28](day-28/) | Revision Day: Everything from Day 1 to Day 27 |
