@@ -59,6 +59,7 @@
 | `git switch <branch>` | Switch branches |
 | `git switch -c <branch>` | Create and switch to a branch |
 | `git checkout <branch>` | Older way to switch branches |
+| `git checkout -b <branch>`| create and switch branch | 
 | `git branch -d <branch>` | Delete merged branch |
 | `git branch -D <branch>` | Force delete branch |
 
