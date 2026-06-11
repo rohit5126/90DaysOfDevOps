@@ -274,13 +274,13 @@ Document the most useful flags/patterns for each:
 # Task 6: Useful Patterns and One-Liners
 Include at least 5 real-world one-liners you find useful. Examples:
 - Find and delete files older than N days
-  ## find /home/ubuntu/backup/*.gz -maxdepth 1 -type f mtime +N -delete
+  `find /home/ubuntu/backup/*.gz -maxdepth 1 -type f mtime +N -delete`
 - Count lines in all `.log` files
-  ## wc -l *.log
+  `wc -l *.log`
 - Replace a string across multiple files
-  ## sed 's/echo/print/g' *.sh
+  `sed 's/echo/print/g' *.sh`
 - Check if a service is running
-  ## systemctl status nginx | grep -i active
+  `systemctl status nginx | grep -i active`
 - Monitor disk usage with alerts
 ```bash
 #!/bin/bash
