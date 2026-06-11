@@ -150,13 +150,26 @@ Task 3: Quick-Fire Questions
 Answer these from memory (no Googling). Then verify your answers:
 
 What does chmod 755 script.sh do?  give owner RWX, group RX, Other RX.
+
 What is the difference between a process and a service? an instance of a program is process and specialized process is a  service.
+
 How do you find which process is using port 8080? ss -tulnp | grep 8080
-What does set -euo pipefail do in a shell script? -e exits when error, -u exist when unassigned variable, -o pipefail exits if any command in a pipe is failed
-What is the difference between git reset --hard and git revert? reset --hard  will delete all the changes, while revert wil generate another commit.
+
+What does set -euo pipefail do in a shell script? -e exits when error, -u exist when unassigned variable, -o pipefail exits if any command in a 
+pipe is failed
+
+What is the difference between git reset --hard and git revert? reset --hard  will delete all the changes, while revert wil generate another 
+commit.
+
 What branching strategy would you recommend for a team of 5 developers shipping weekly?
+
 What does git stash do and when would you use it?git stash stores your current work in backgroud which you can resume again using stash pop
+
 How do you schedule a script to run every day at 3 AM? 00 03 * * * bash script.sh in crontab
+
 What is the difference between git fetch and git pull? git fetch only download the changes while git pull downloads and force them into current working dir
-What is LVM and why would you use it instead of regular partitions?LVm is logical volume manager, we use it bcoz it is easily resizable and movable and easy to manage istead of hard drives.
+
+What is LVM and why would you use it instead of regular partitions?LVm is logical volume manager, we use it bcoz it is easily resizable and 
+movable and easy to manage istead of hard drives.
+
 
