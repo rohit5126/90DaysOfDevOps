@@ -65,11 +65,57 @@ Practice the full lifecycle on one container:
 `docker start -d <id/image>`
 
 **Pause it and check status**
-`docker 
-Unpause it
-Stop it
-Restart it
-Kill it
-Remove it
+`docker pause <id>` it shows pause.
 
+**Unpause it**
+`docker unpause <id>`
+
+**Stop it**
+`docker stop <id>`
+
+**Restart it**
+`docker start <id>`
+
+**Kill it**
+`docker kill <id>`
+
+**Remove it**
+`docker rm <id>`
+`docker rm -f <id>`
+
+## Task 4: Working with Running Containers
+
+**Run an Nginx container in detached mode**
+`docker run -d -p 80:80 nginx`
+
+**View its logs**
+`docker logs <id>
+
+**View real-time logs (follow mode)**
+`docker logs -f <id>`
+
+**Exec into the container and look around the filesystem**
+`docker exec -it d13 bash` 
+
+**Run a single command inside the container without entering it**
+`docker exec -it d13 ls -l`
+
+**Inspect the container — find its IP address, port mappings, and mounts**
+`docker exec -it d13 hostname`
+`docker exec -it d13 dh -f`
+
+# Task 5: Cleanup
+
+**Stop all running containers in one command**
+`docker system prune`
+`docker stop $(docker ps -q)`
+
+**Remove all stopped containers in one command**
+`docker rm -f $(docker ps -aq)`
+
+**Remove unused images**
+`docker rmi <id>`
+
+**Check how much disk space Docker is using**
+`docker system df`
 
