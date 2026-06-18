@@ -154,16 +154,33 @@ make sure image name is docker_username/image_name:latest
 docker push <image>
  ```
 
-Quick-Fire Questions
+## Quick-Fire Questions
 Answer from memory, then verify:
 
-What is the difference between an image and a container?
-What happens to data inside a container when you remove it?
-How do two containers on the same custom network communicate?
-What does docker compose down -v do differently from docker compose down?
-Why are multi-stage builds useful?
-What is the difference between COPY and ADD?
-What does -p 8080:80 mean?
-How do you check how much disk space Docker is using?
+**What is the difference between an image and a container?**
+The core difference is that a Docker image is a static, read-only template or blueprint, while a Docker container is a live, running instance of that image.
 
+**What happens to data inside a container when you remove it?**
+When you remove a container (e.g., via docker rm), any data written to its ephemeral writable layer is permanently destroyed
+
+**How do two containers on the same custom network communicate?**
+Containers on the same custom user-defined network communicate using built-in automatic service discovery (embedded DNS). You can simply use the container's name or IP address 
+
+**What does docker compose down -v do differently from docker compose down?**
+-v prinst version info and quit.
+
+**Why are multi-stage builds useful?**
+multi stage build reduces the size of image.
+Multi-stage builds allow you to split your Dockerfile into multiple distinct stages. This enables you to use bulky compilers and heavy build tools in early stages, while copying only the final lightweight artifacts into a minimal, production-ready image
+
+**What is the difference between COPY and ADD?**
+COPY use to copy files from local to conatiner while ADD is use to copy files from remote or website to container.
+
+**What does -p 8080:80 mean?**
+this means that conatiner port 80 is mapped to server port 8080.
+
+**How do you check how much disk space Docker is using?**
+docker system df
+docker system df -v (listall the images container and volumes
+docker ps --size
 
