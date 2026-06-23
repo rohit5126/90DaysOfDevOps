@@ -85,7 +85,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.step2.outputs.files }}
+      output1: ${{ steps.step2.outputs.files }}    #this will always be inside a job
       output2: ${{ steps.step3.outputs.test }}
       output3: ${{ steps.step4.outputs.test }}
     steps:
@@ -93,7 +93,7 @@ jobs:
         uses: actions/checkout@v7
       - id: step2
         run: |
-          {
+          {                            #ths syntax is used for multi line output.
              echo "files<<EOF"
              ls -l
              echo "EOF" 
@@ -106,7 +106,7 @@ jobs:
           echo "test=$text" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-slim
-    needs: job1
+    needs: job1      #important line must be there or the env variable will not accept the output.
     env:
       ro: ${{ needs.job1.outputs.output1 }}
       ar: ${{ needs.job1.outputs.output2 }}
@@ -118,4 +118,123 @@ jobs:
      - name: date
        run: echo "$da"
 
+```
+-------------------------------------------------
+```
+name: sfhosted
+on:
+  push:
+    branches: master
+    paths: .github/workflows/self_hosted.yml
+  workflow_dispatch:
+
+jobs:
+  job1:
+    outputs:
+      out1: ${{ steps.step1.outputs.text }}
+      out2: ${{ steps.step2.outputs.text }}
+      out3: ${{ steps.step3.outputs.text }}
+      
+    runs-on: [self-hosted, linux-practice]
+    strategy:
+      fail-fast: false
+    steps:
+      - id: step1
+        run: |
+          version=$(docker --version)     #this syntax is always used for oneline output.
+          echo "text=$version" >> "$GITHUB_OUTPUT"
+      - id: step2
+        run: |
+          version=$(whoami)
+          echo "text=$version" >> "$GITHUB_OUTPUT"
+      - id: step3
+        run: |
+          version=$(hostname)
+          echo "text=$version" >> "$GITHUB_OUTPUT"
+   
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    env:
+      d: ${{ needs.job1.outputs.out1 }}
+      w: ${{ needs.job1.outputs.out2 }}
+      h: ${{ needs.job1.outputs.out3 }}
+    steps:
+      - name: docker
+        run: echo "$d"
+      - name: whoami
+        run: echo "$w"
+      - name: hostname
+        run: echo "$h"
+```
+-------------------------------------------------------------
+
+## Task 4: Conditionals
+
+### In GitHub Actions, you use the if conditional to programmatically control whether a job or step should run
+
+```
+name: condition
+on:
+  push:
+    branches: master
+    paths: .github/workflows/conditional.yml
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - name: step1
+        if: ${{ github.ref_name == 'master' }}  #you can find this variables in github context official doc
+        uses: actions/checkout@v7
+      - id: step2
+        if: ${{ github.event_name != 'workflow_dispatch' }}
+        run: exit 1
+      - name: step3
+        if: failure()
+        run: echo "last step failed"
+      - name: step4
+        if: ${{ github.event_name == 'push' || success() }}  #successs or faiure depends on status of previous step.
+        run: echo "correct event"
+
+```
+----------------------------------------------------------------
+
+## Task 5: Putting It Together
+
+**make sure this script exist in all the branches fr it to work in both branch**
+
+```
+name: sp
+on:
+  push:  
+    branches: 
+      - '**'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: lintjob
+        run: echo "lint job running"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: testjob
+        run: echo "test job is running"
+  summary:
+    runs-on: ubuntu-latest
+    needs: [ lint,test ]
+    steps:
+      - name: branch
+        if: ${{ github.ref_name == 'master' }}
+        run: echo "this is master branch"
+      - name: feature
+        if: ${{ github.ref_name == 'dev' }}
+        run: echo "this dev branch"
+      - name: commit
+        run: echo " ${{ github.event.head_commit.message }}"
 ```
