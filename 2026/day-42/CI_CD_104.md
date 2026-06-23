@@ -89,6 +89,7 @@ jobs:
         run: hostname
 ```
 <img width="1381" height="691" alt="image" src="https://github.com/user-attachments/assets/bbc43ab4-f9e4-476e-bfad-2b4c774576c1" />
+
 -----------------------------------------
 
 ## Task 5: Labels
