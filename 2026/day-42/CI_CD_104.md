@@ -105,4 +105,17 @@ jobs:
       - name: hostname
         run: hostname
 ```
+`Labels enable precise job routing to specific self-hosted runners. By assigning custom tags (e.g., gpu, macos, or staging), you guarantee workflows execute on machines matching their exact hardware or software dependencies, preventing misassignment issues and optimizing resource usage`
 
+---------------------------------------
+
+### Task 6: GitHub-Hosted vs Self-Hosted
+
+
+| | GitHub-Hosted | Self-Hosted |
+|---|---|---|
+| Who manages it? | github | managed by self |
+| Cost | free/charge | charge |
+| Pre-installed tools | most pre installed| no pre installed|
+| Good for | good for running one time job | good for running persistant jobs |
+| Security concern | less security easy to hack | hish security based on your server security level |
