@@ -51,6 +51,9 @@ jobs:
 ```
 #### all the below are pre installed.
 
+<img width="1407" height="752" alt="image" src="https://github.com/user-attachments/assets/8944b044-6f2e-4ecd-8d46-90b7c787bc29" />
+
+
 **Docker version**
 **Python version**
 **Node version**
@@ -85,6 +88,8 @@ jobs:
       - name: hostname
         run: hostname
 ```
+<img width="1381" height="691" alt="image" src="https://github.com/user-attachments/assets/bbc43ab4-f9e4-476e-bfad-2b4c774576c1" />
+-----------------------------------------
 
 ## Task 5: Labels
 
@@ -105,6 +110,9 @@ jobs:
       - name: hostname
         run: hostname
 ```
+
+<img width="526" height="316" alt="image" src="https://github.com/user-attachments/assets/dcfb09ea-4238-4212-a81b-00659901644a" />
+
 `Labels enable precise job routing to specific self-hosted runners. By assigning custom tags (e.g., gpu, macos, or staging), you guarantee workflows execute on machines matching their exact hardware or software dependencies, preventing misassignment issues and optimizing resource usage`
 
 ---------------------------------------
