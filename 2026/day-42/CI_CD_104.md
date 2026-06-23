@@ -114,8 +114,8 @@ jobs:
 
 | | GitHub-Hosted | Self-Hosted |
 |---|---|---|
-| Who manages it? | github | managed by self |
-| Cost | free/charge | charge |
-| Pre-installed tools | most pre installed| no pre installed|
-| Good for | good for running one time job | good for running persistant jobs |
-| Security concern | less security easy to hack | hish security based on your server security level |
+| Who manages it? | fully managed github | Managed and maintained by your team/organization. |
+| Cost | Free for public repos; uses included minutes/pay-as-you-go per minute for private repos. | Free to register with GitHub, but you pay the underlying cloud or server infrastructure costs. |
+| Pre-installed tools | Extensive bundle (e.g., Node.js, Python, Docker, Git, etc.) updated automatically by GitHub.| Blank slate; you manually configure the OS, dependencies, and tools you need.|
+| Good for | Standard workflows, open-source projects, and teams wanting a simple "set it and forget it" setup. | Custom hardware, accessing on-premises private networks, and large workloads where you want deep control. |
+| Security concern | Very low; runs in a secure, ephemeral, isolated VM that is destroyed after each job. | Higher risk; untrusted workflows could potentially compromise your local network, leak secrets, or persist unwanted data if the machine isn't isolated. |
