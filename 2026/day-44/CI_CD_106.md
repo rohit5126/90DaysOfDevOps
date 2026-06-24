@@ -27,10 +27,16 @@ jobs:
 
 **Secrets cannot be directly referenced in if: conditionals. Instead, consider setting secrets as job-level environment variables, 
 then referencing the environment variables to conditionally run steps in the job. For more information, see Contexts reference**
+
 ---------------------------------------------
 
 ### Task 2: Use Secrets as Environment Variables
 
+<img width="1170" height="702" alt="image" src="https://github.com/user-attachments/assets/dde01412-59a4-4a56-bf7e-24a253ddface" />
+
+<img width="1245" height="715" alt="image" src="https://github.com/user-attachments/assets/d30b6f57-e7f9-49a0-9a8e-2135a4057b8b" />
+
+----------------------------------------------
 
 ### Upload Artifacts and Download Artifacts Between Jobs
 ```
@@ -72,6 +78,9 @@ jobs:
 
 Can you see and download it from GitHub? yes we can download it from inside workflow run.
 
+<img width="1652" height="857" alt="image" src="https://github.com/user-attachments/assets/088c5211-a652-4fd4-b99a-df1f2c562374" />
+
+
 --------------------------------------------------
 
 ### Task 5: Run Real Tests in CI
@@ -103,6 +112,60 @@ jobs:
           name: main_file
           path: frontend/dist/
 ```
+------------------------------------------------------------------
 
 ### Task 6: Caching
+
+**GitHub Actions caching allows you to save and reuse files like build outputs and package dependencies across workflow runs to drastically decrease build times**
+
+```
+name: main
+on:
+  workflow_dispatch:
+
+jobs:
+  code-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code-chekcout
+        uses: actions/checkout@v7
+      - id: cache-d     #always use id
+        uses: actions/cache@v6
+        with:
+          path: ~/.npm   #this path is for the dir you want to cache
+          key: ${{ runner.os }}-node-${{ hashFiles('**/frontend/package-lock.json') }}  #its purpose is only to uniquely name the cache file. hashfiles provide a haskey
+          restore-keys: |         #this step restore already existing cache 
+            ${{ runner.os }}-node-
+      - name: install
+        if: steps.cache-d.outputs.cache-hit != 'true'    # this steps make sure to skip the install if cache is restored. if not it will install
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20   
+      - id: cache
+        uses: actions/cache@v6
+        with: 
+          path: frontend/dist/
+          key: ${{ runner.os }}-node-build-${{ hashFiles('**/frontend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-build-
+      - name: build
+        if: steps.cache.outputs.cache-hit != 'true'   # this steps make sure to skip the build if cache is restored. if not it will build
+        run: |
+          cd frontend
+          npm install
+          npm run build
+      - name: print
+        run: |
+          cd frontend/dist/
+          ls -l
+          
+        
+```
+
+**Write in your notes: What is being cached and where is it stored?**
+
+the directory is being cached and it is stores in github repo. you can look for it under (Go to your repository > Actions > Caches ).
+
+<img width="1232" height="776" alt="image" src="https://github.com/user-attachments/assets/81f86959-060b-418e-a243-00bc4413a91b" />
+
 
