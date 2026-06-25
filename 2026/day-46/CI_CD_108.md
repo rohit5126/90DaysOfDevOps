@@ -94,3 +94,100 @@ jobs:
 
 
 ------------------------------------------------------
+
+## Task 5: Create a Composite Action
+
+action.yml
+```
+name: go-setup-test
+description: 'this action file runs go setup, test the code and lint it'
+
+inputs:
+  go-version:
+    default: '1.23'
+  go-version-file: 
+    required: true
+    type: string
+  cache-dependency-path: 
+    required: true
+    type: string
+  code-path: 
+    required: true
+    type: string
+
+outputs:
+  out:
+    value: ${{ steps.status.outputs.pass }}
+
+runs:
+  using: 'composite'
+  steps:
+   - name: go-steup
+     uses: actions/setup-go@v6
+     with:
+       go-version: ${{ inputs.go-version }}
+       go-version-file: ${{ inputs.go-version-file }}
+       cache-dependency-path: ${{ inputs.cache-dependency-path }}
+   - name: run go-format
+     shell: bash
+     run: go fmt main.go
+     working-directory: ${{ inputs.code-path }}
+
+   - name: run go-vet
+     shell: bash
+     run: go vet main.go
+     working-directory: ${{ inputs.code-path }}
+
+   - name: testing
+     shell: bash
+     run: go test
+     working-directory: ${{ inputs.code-path }}
+
+   - id: status
+     shell: bash
+     if: success()
+     run: |
+       echo "pass='all test cases passed'" >> "$GITHUB_OUTPUT"
+```
+Workflow file
+
+```
+backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code-checkout
+        uses: actions/checkout@v7
+      - name: go-setup-test
+        id: setup
+        uses: ./.github/actions/go-setup/
+        with:
+          go-version: 1.23
+          go-version-file: backend/go.mod
+          cache-dependency-path: backend/go.sum
+          code-path: backend/
+      - name: status
+        run: |
+          echo " ${{ steps.setup.outputs.out }}"
+        
+      - name: docker login
+        uses: docker/login-action@v4
+        with:
+          username: ${{ vars.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: docker build and push
+        if: ${{ github.ref_name == 'master' }}
+        uses: docker/build-push-action@v7
+        with:
+          context: backend/
+          push: true
+          tags: ${{ vars.DOCKER_USERNAME }}/devboard-backend:latest
+```
+
+<img width="1270" height="597" alt="image" src="https://github.com/user-attachments/assets/64b010bc-a95c-4c53-88cd-73628e4a48a2" />
+
+<img width="362" height="745" alt="image" src="https://github.com/user-attachments/assets/0aba7d43-5ac3-4a34-a92e-63ea4e9b2908" />
+
+**it must be named either action.yml or action.yaml if you want GitHub to recognize it automatically**
+
+**You can place the folder containing your action.yml file anywhere in your repository. GitHub only cares that the file itself is named action.yml and that you point to its containing folder**
