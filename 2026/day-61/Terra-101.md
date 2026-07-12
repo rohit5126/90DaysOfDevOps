@@ -125,9 +125,10 @@ resource "aws_instance" "my-instance" {
     root_block_device {
       volume_size = "8"
       volume_type = "gp3"
-      tags = {
+      
+    }
+    tags = {
         name = "server-terra"
-      }
     }
 
 }
