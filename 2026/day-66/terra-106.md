@@ -124,3 +124,39 @@ module "eks" {
 ```
 
 ## Task 4: Apply and Connect kubectl
+
+
+
+First craete an **IAM account** in aws and give it **admin policy** so that eks will treat it as admin.
+
+now configur your local using **aws configure** and **add access key and password** for IAM account.
+
+now **configure kubectl** using `kubectl configure`
+
+`aws eks update-kubeconfig --name terraweek-eks --region <your-region>`
+
+now run **kubectl get nodes** and **kubectl cluster-info**.
+
+## Task 6: Destroy Everything
+
+This is the most important step. EKS clusters cost money. Clean up completely.
+
+First, remove the Kubernetes resources (so the AWS LoadBalancer gets deleted):
+
+`kubectl delete -f k8s/nginx-deployment.yaml`
+
+Wait for the LoadBalancer to be fully removed (check EC2 > Load Balancers in AWS console)
+
+Destroy all Terraform resources:
+
+`terraform destroy`
+
+This will take 10-15 minutes.
+
+Verify in the AWS console:
+
+EKS clusters: empty
+EC2 instances: no node group instances
+VPC: the terraweek VPC should be gone
+NAT Gateways: deleted
+Elastic IPs: released
