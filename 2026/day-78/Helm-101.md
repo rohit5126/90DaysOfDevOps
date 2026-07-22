@@ -24,4 +24,30 @@ Values -- configuration that customizes a chart for each deployment (replicas, i
 
 ```
 
-helm 
+ 1536  helm package nginx-chart
+
+ 1544  helm install mysql ./nginx-chart
+ 
+
+
+ 1560  helm history mysql 
+
+ 1562  helm rollback mysql 2
+
+ 1572  helm show values ./nginx-chart
+ 1573  helm repo add bitnami https://charts.bitnami.com/bitnami
+
+ 1581  helm repo update
+
+ 1594  helm search repo bitnami/mysql
+
+ 1602  helm install bankapp-mysql
+
+ 1611  helm upgrade mysql nginx-chart -f current_values.yml 
+ 
+ 1615  helm upgrade mysql nginx-chart --set env.MYSQL_ROOT_PASSWORD=test --set env.MYSQL_DATABASE=mydb
+ 1618  kubectl get all
+ 1619  kubectl exec -it mysql-nginx-chart-dcf9c4f5b-2qsv5 -- sh
+ 1622  helm get values mysql > current_values.yml
+ 1623  helm uninstall mysql 
+```
