@@ -164,3 +164,54 @@ services:
 ---
 
 ## Task 5: Query Logs with LogQL
+
+**LogQL is Loki's query language -- similar to PromQL but for logs.**
+
+**Go to Grafana > Explore (compass icon). Select Loki as the datasource.**
+
+**Stream selector -- filter logs by labels:**
+```
+{job="docker"}
+This shows all Docker container logs.
+```
+
+**Filter by container name:**
+```
+{container_name="prometheus"}
+```
+
+**Keyword search -- filter log lines by content:**
+```
+{job="docker"} |= "error"
+|= means "line contains". This finds all log lines with the word "error".
+```
+
+**Negative filter:**
+```
+{job="docker"} != "health"
+Excludes lines containing "health" (useful to filter out health check noise).
+```
+
+**Regex filter:**
+```
+{job="docker"} |~ "status=[45]\\d{2}"
+Finds lines with HTTP 4xx or 5xx status codes.
+```
+
+**Log metric queries -- count log lines over time:**
+```
+count_over_time({job="docker"}[5m])
+```
+**Rate of logs per second:**
+```
+rate({job="docker"}[5m])
+```
+**Top containers by log volume:**
+```
+topk(5, sum by (container_name) (rate({job="docker"}[5m])))
+```
+**Exercise: Write a LogQL query that finds all error logs from the notes-app container in the last 1 hour. Then write another query that counts how many error lines per minute.**
+
+count_over_time({job="docker", container_name="notes_app"} |= "error" [60m])
+
+
