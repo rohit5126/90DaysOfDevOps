@@ -2,6 +2,33 @@
 
 ## Task 1: Scaffold the Chart and Study the Raw Manifests
 
+Map each file to what it does:
+
+| File | Purpose |
+|------|---------|
+| `configmap.yml` | MySQL host, port, database, Ollama URL |
+| `secrets.yml` | MySQL credentials (base64 encoded) |
+| `bankapp-deployment.yml` | BankApp with init containers, probes, envFrom |
+| `mysql-deployment.yml` | MySQL with EBS volume mount, probes |
+| `ollama-deployment.yml` | Ollama with postStart model pull, probes |
+| `service.yml` | ClusterIP services for all 3 components |
+
+Now scaffold a Helm chart:
+```bash
+mkdir helm-chart && cd helm-chart
+helm create bankapp
+```
+
+Delete the generated template files -- you will write your own from the raw manifests:
+```bash
+rm -rf bankapp/templates/*.yaml bankapp/templates/tests/
+```
+
+Keep `_helpers.tpl` and `NOTES.txt` -- you will customize them.
+
+---
+
+
 
 
 ## Task 2: Define Chart.yaml and values.yaml
@@ -359,5 +386,11 @@ spec:
 
 Review the output. Every {{ }} should be resolved to actual values.
 
+**we can also run by overriding the values**
+```
+helm install my-bankapp bankapp/ \
+> --set bankapp.replicaCount=1 \
+> --set ollama.enabled=false
+```
 
 
