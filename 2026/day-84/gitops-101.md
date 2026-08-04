@@ -84,6 +84,27 @@ kubectl port-forward svc/argocd-server -n argocd 8080:80 --address 0.0.0.0
 ```
 ---
 
+**install argo cd cli**
+
+```
+curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+chmod +x argocd
+sudo mv argocd /usr/local/bin/
+
+# Verify
+argocd version --client
+```
+**connect argocd cli to your cluster**
+```
+argocd login --skip-test-tls --plaintext localhost:8080  #this is command
+Username: admin
+Password:
+
+'admin:login' logged in successfully    #this is outut
+Context 'localhost:8080' updated
+```
+---
+
 ## Task 3: AI-BankApp's ArgoCD Application Manifest
 
 ```
@@ -113,9 +134,11 @@ spec:
 ## Task 4: Deploy the AI-BankApp via ArgoCD
 
 ```
-kubectl apply -f applications.yml
+kubectl apply -f applications.yml  
 
 kubectl get all -n newbankapp
+
+argocd app get bankapp
 ```
 
 ## Task 5: Explore ArgoCD's Live View
