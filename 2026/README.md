@@ -139,7 +139,7 @@ ALL MARKED IN  $${\color{red}Red}$$ ARE DONE
 |-----|-------|-----------|
 | [Day 78](day-78/) | $${\color{red}Introduction to Helm and Chart Basics}$$ | [AI-BankApp-DevOps](https://github.com/TrainWithShubham/AI-BankApp-DevOps/tree/feat/gitops) |
 | [Day 79](day-79/) | $${\color{red}Creating a Custom Helm Chart for AI-BankApp}$$ | |
-| [Day 80](day-80/) | Helm Project: Multi-Environment Deployment and CI/CD |
+| [Day 80](day-80/) | $${\color{red}Helm Project: Multi-Environment Deployment and CI/CD} $$ | 
 
 ## Amazon EKS (Days 81-83)
 
@@ -147,7 +147,7 @@ ALL MARKED IN  $${\color{red}Red}$$ ARE DONE
 |-----|-------|-----------|
 | [Day 81](day-81/) | $${\color{red}Introduction to Amazon EKS with Terraform}$$ | [AI-BankApp-DevOps](https://github.com/TrainWithShubham/AI-BankApp-DevOps/tree/feat/gitops) |
 | [Day 82](day-82/) | $${\color{red}EKS Networking with Gateway API and Persistent Storage}$$ | |
-| [Day 83](day-83/) | EKS Project: Production Deployment of AI-BankApp |
+| [Day 83](day-83/) | $${\color{red}EKS Project: Production Deployment of AI-BankApp}$$ | |
 
 ## ArgoCD and GitOps (Days 84-86)
 
