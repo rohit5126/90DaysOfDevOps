@@ -139,7 +139,7 @@ ALL MARKED IN  $${\color{red}Red}$$ ARE DONE
 |-----|-------|-----------|
 | [Day 78](day-78/) | $${\color{red}Introduction to Helm and Chart Basics}$$ | [AI-BankApp-DevOps](https://github.com/TrainWithShubham/AI-BankApp-DevOps/tree/feat/gitops) |
 | [Day 79](day-79/) | $${\color{red}Creating a Custom Helm Chart for AI-BankApp}$$ | |
-| [Day 80](day-80/) | $${\color{red}Helm Project: Multi-Environment Deployment and CI/CD} $$ | 
+| [Day 80](day-80/) | Helm Project: Multi-Environment Deployment and CI/CD | 
 
 ## Amazon EKS (Days 81-83)
 
@@ -155,7 +155,7 @@ ALL MARKED IN  $${\color{red}Red}$$ ARE DONE
 |-----|-------|-----------|
 | [Day 84](day-84/) | $${\color{red}Introduction to GitOps and ArgoCD}$$ | [AI-BankApp-DevOps](https://github.com/TrainWithShubham/AI-BankApp-DevOps/tree/feat/gitops) |
 | [Day 85](day-85/) | $${\color{red}ArgoCD Deep Dive: Sync Strategies, Rollbacks, and Multi-App Management}$$ | |
-| [Day 86](day-86/) | GitOps Project: End-to-End CI/CD Pipeline with AI-BankApp |
+| [Day 86](day-86/) | $${\color{red}GitOps Project: End-to-End CI/CD Pipeline with AI-BankApp} $$  |
 
 ## Agentic AI for DevOps (Days 87-89)
 
