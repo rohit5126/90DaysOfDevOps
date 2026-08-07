@@ -77,6 +77,13 @@ name: all-check-passed-pushed
 on: 
   push:
     branches: [actions]
+    paths:
+      - 'src/**'
+      - 'pom.xml'
+      - 'Dockerfile'
+      - 'Monitoring/**'
+      - 'argoCD/**'
+      - 'Helm/**'
   workflow_dispatch: 
 
 permissions:
@@ -134,5 +141,97 @@ jobs:
 ```
 
 <img width="1816" height="412" alt="image" src="https://github.com/user-attachments/assets/5b059642-8dcb-4dd0-8022-19c398e145a6" />
+
+**How to deploy the app**
+
+* Once this is done, get your EKS cluster ready and connect kubectl to your cluster.
+* Then install argocd to your cluster using Helm.
+* Then for the repo, and change dir to argoCD and run `kubectl apply -f root-app.yml`
+
+**few things to make sure**
+
+* that your EKS cluster has ebs storage configured and storgeclass is gp2
+* also it is properly set to sync waves and resource ordering.
+
+#### once applications are deployed you can Test Drift Detection and Recovery
+
+GitOps means the cluster must always match Git. Test what happens when someone makes unauthorized changes.
+
+**Scenario 1 -- Someone scales down the app directly:**
+```
+kubectl scale deployment bankapp -n bankapp --replicas=1
+Check ArgoCD:
+
+argocd app get bankapp
+```
+**Status should show OutOfSync. With selfHeal: true, ArgoCD will correct it within 3 minutes. Monitor:**
+
+```
+kubectl get pods -n bankapp -w
+The replica count will return to 4 (or whatever the manifest specifies).
+```
+
+**Scenario 2 -- Someone updates the image tag directly:**
+```
+kubectl set image deployment/bankapp bankapp=nginx:latest -n bankapp
+ArgoCD detects the drift and reverts it to the image tag from Git. The BankApp pods restart with the correct image.
+```
+
+**Scenario 3 -- Someone deletes a critical resource:**
+```
+kubectl delete service bankapp-service -n bankapp
+ArgoCD recreates it from Git.
+```
+
+**View all drift events:**
+
+```
+argocd app history bankapp
+```
+In the ArgoCD UI, click the application and look at the "Events" tab. Every self-heal action is logged with the before/after state.
+
+**Document: In each scenario, how long did ArgoCD take to detect and fix the drift? What would happen if selfHeal was disabled?**
+By default it takes 3 minutes for argoCd to detect changes and re sync the app with the github repo. If self heal was disabled manual changes made directly to your cluster resources using kubectl will no longer be automatically reverted.
+
+
+### Task 5: Reflect on the Complete DevOps Pipeline
+
+S**tep back and look at everything you have built across the entire 90-day challenge that connects to this GitOps pipeline:**
+
+```
+[Developer writes code]
+    |
+[Git push to GitHub]  ........... Day 22-28: Git & GitHub
+    |
+[GitHub Actions CI]   ........... Day 40-49: GitHub Actions
+    |-- Build with Maven
+    |-- Run tests
+    |-- Build Docker image  ..... Day 29-37: Docker
+    |-- Push to DockerHub
+    |-- Update K8s manifest
+    |-- Commit back to Git
+    |
+[ArgoCD detects change] ........ Day 84-86: GitOps
+    |
+[ArgoCD syncs to EKS]  ........ Day 81-83: EKS
+    |-- Rolling update
+    |-- Health checks pass
+    |-- HPA scales as needed ... Day 78-80: Helm (HPA, values)
+    |
+[Prometheus scrapes metrics] ... Day 73-77: Observability
+    |-- Grafana dashboards
+    |-- Alerts if something breaks
+    |
+[App is live with zero downtime]
+```
+
+
+
+
+
+
+
+
+
 
 
