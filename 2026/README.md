@@ -8,7 +8,7 @@ A day-by-day index of the complete 90-day DevOps challenge. Click any day to jum
 
 | Day | Topic |
 |-----|-------|
-| [Day 01](day-01/) | Introduction to DevOps and Cloud |
+| [Day 01](day-01/) | This is <span style="color:#00ff00">Introduction to DevOps and Cloud</span> |
 | [Day 02](day-02/) | Linux Architecture, Processes, and systemd |
 | [Day 03](day-03/) | Linux Commands Practice |
 | [Day 04](day-04/) | Linux Practice: Processes and Services |
