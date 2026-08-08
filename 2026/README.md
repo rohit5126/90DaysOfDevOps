@@ -130,7 +130,7 @@ ALL MARKED IN  $${\color{red}Red}$$ ARE DONE
 | [Day 73](day-73/) | $${\color{red}Introduction to Observability and Prometheus}$$ | [observability-for-devops](https://github.com/LondheShubham153/observability-for-devops) |
 | [Day 74](day-74/) | $${\color{red}Node Exporter, cAdvisor, and Grafana Dashboards}$$ | |
 | [Day 75](day-75/) | $${\color{red}Log Management with Loki and Promtail}$$ | |
-| [Day 76](day-76/) | OpenTelemetry and Alerting |
+| [Day 76](day-76/) | $${\color{red}OpenTelemetry and Alerting}$$ |
 | [Day 77](day-77/) | Observability Project: Full Stack with Docker Compose |
 
 ## Helm (Days 78-80)
