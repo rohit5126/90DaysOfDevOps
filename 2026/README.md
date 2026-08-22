@@ -163,7 +163,7 @@ ALL MARKED IN  $${\color{red}Red}$$ ARE DONE
 |-----|-------|-----------|
 | [Day 87](day-87/) | $${\color{red}Introduction to Agentic AI for DevOps}$$ | | | [agentic-ai-for-devops](https://github.com/TrainWithShubham/agentic-ai-for-devops) |
 | [Day 88](day-88/) |$${\color{red}Multi-Tool Agents, MCP, and CI/CD Analyzer}$$ | | | |
-| [Day 89](day-89/) | Production AI Agents: KubeHealer and AIOps| [kubehealer](https://github.com/TrainWithShubham/kubehealer) |
+| [Day 89](day-89/) | $${\color{red}Production AI Agents: KubeHealer and AIOps}$$ || [kubehealer](https://github.com/TrainWithShubham/kubehealer) |
 
 ## Grand Finale (Day 90)
 
