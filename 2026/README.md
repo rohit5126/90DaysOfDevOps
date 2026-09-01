@@ -98,7 +98,7 @@ ALL MARKED IN  $${\color{red}Red}$$ ARE DONE
 | [Day 56](day-56/) | $${\color{red}Kubernetes StatefulSets}$$ |
 | [Day 57](day-57/) | $${\color{red}Resource Requests, Limits, and Probes}$$ |
 | [Day 58](day-58/) | $${\color{red}Metrics Server and Horizontal Pod Autoscaler (HPA)}$$ |
-| [Day 59](day-59/) | Helm -- Kubernetes Package Manager|
+| [Day 59](day-59/) | $${\color{red}Helm -- Kubernetes Package Manager}$$ |
 | [Day 60](day-60/) | $${\color{red}Capstone: Deploy WordPress + MySQL on Kubernetes}$$ |
 
 ## TerraWeek -- Terraform (Days 61-67)
