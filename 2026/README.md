@@ -83,7 +83,7 @@ ALL MARKED IN  $${\color{red}Red}$$ ARE DONE
 | [Day 46](day-46/) | $${\color{red}Reusable Workflows and Composite Actions}$$ |
 | [Day 47](day-47/) | $${\color{red}Advanced Triggers: PR Events, Cron Schedules and Event-Driven Pipelines}$$ |
 | [Day 48](day-48/) | $${\color{red}GitHub Actions Project: End-to-End CI/CD Pipeline}$$ |
-| [Day 49](day-49/) | DevSecOps: Add Security to Your CI/CD Pipeline |
+| [Day 49](day-49/) | $${\color{red}DevSecOps: Add Security to Your CI/CD Pipeline}$$ |
 
 ## Kubernetes (Days 50-60)
 
